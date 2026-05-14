@@ -1,0 +1,207 @@
+{
+  "name": "ai-productivity-tools",
+  "displayName": "AI Productivity Tools",
+  "description": "10 AI-powered tools: explain code, commit messages, file summaries, code review, unused imports, git blame, smart rename, live dashboard, and Bwat AI access.",
+  "version": "0.2.0",
+  "publisher": "naashonkut-commits",
+  "license": "MIT",
+  "icon": "logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naashonkut-commits/ai-productivity-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/naashonkut-commits/ai-productivity-tools/issues"
+  },
+  "homepage": "https://github.com/naashonkut-commits/ai-productivity-tools#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Notebooks",
+    "Visualization"
+  ],
+  "keywords": [
+    "ai",
+    "productivity",
+    "explain",
+    "commit",
+    "bwat",
+    "code assistant",
+    "code review",
+    "git blame",
+    "refactor",
+    "unused imports",
+    "file summary",
+    "dashboard",
+    "casa management solutions"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiProductivity.explainCode",
+        "title": "AI: Explain Selected Code",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.generateCommitMessage",
+        "title": "AI: Generate Commit Message",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.openBwatWeb",
+        "title": "AI: Open Bwat Web",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.summarizeFile",
+        "title": "AI: Summarize Current File",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.findUnusedImports",
+        "title": "AI: Find Unused Imports",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.codeReview",
+        "title": "AI: Code Review",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.gitBlame",
+        "title": "AI: Git Blame & History",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.quickRefactor",
+        "title": "AI: Quick Refactor (Rename Symbol)",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.browseBwatDocs",
+        "title": "AI: Browse Bwat Docs",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity.toggleDashboard",
+        "title": "AI: Toggle Productivity Dashboard",
+        "category": "AI"
+      },
+      {
+        "command": "aiProductivity._handleWebviewMessage",
+        "title": "%aiProductity.internal.handleWebviewMessage%",
+        "category": "AI"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "aiProductivity.explainCode",
+        "key": "ctrl+shift+e",
+        "mac": "cmd+shift+e",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiProductivity.generateCommitMessage",
+        "key": "ctrl+shift+g",
+        "mac": "cmd+shift+g"
+      },
+      {
+        "command": "aiProductivity.openBwatWeb",
+        "key": "ctrl+shift+w",
+        "mac": "cmd+shift+w"
+      },
+      {
+        "command": "aiProductivity.summarizeFile",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiProductivity.findUnusedImports",
+        "key": "ctrl+shift+u",
+        "mac": "cmd+shift+u",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiProductivity.codeReview",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiProductivity.gitBlame",
+        "key": "ctrl+shift+h",
+        "mac": "cmd+shift+h",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiProductivity.quickRefactor",
+        "key": "ctrl+shift+d",
+        "mac": "cmd+shift+d",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiProductivity.toggleDashboard",
+        "key": "ctrl+shift+p",
+        "mac": "cmd+shift+p"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "aiProductivity.explainCode",
+          "group": "1_modification"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "aiProductivity.codeReview",
+          "group": "1_modification"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "aiProductivity.gitBlame",
+          "group": "1_modification"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "aiProductivity.summarizeFile",
+          "group": "navigation"
+        },
+        {
+          "command": "aiProductivity.findUnusedImports",
+          "group": "navigation"
+        }
+      ],
+      "scm/title": [
+        {
+          "command": "aiProductivity.generateCommitMessage",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.3.0",
+    "eslint": "^8.56.0"
+  }
+}
