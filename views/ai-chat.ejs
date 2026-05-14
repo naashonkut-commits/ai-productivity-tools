@@ -1,0 +1,130 @@
+<%- include('layout', { body: `
+<section class="page-header">
+  <div class="container">
+    <h1>Bwat AI <span class="accent">Coding Assistant</span></h1>
+    <p>Try our AI-powered coding assistant right in your browser. Paste your code and get explanations, reviews, and suggestions — no VS Code needed.</p>
+  </div>
+</section>
+
+<section class="chat-section">
+  <div class="container">
+    <div class="chat-container">
+      <div class="chat-sidebar">
+        <div class="chat-sidebar-header">
+          <h3>Quick Actions</h3>
+        </div>
+        <button class="chat-preset" data-prompt="Explain this code to me step by step:">
+          <span class="preset-icon">🤖</span> Explain Code
+        </button>
+        <button class="chat-preset" data-prompt="Review this code for bugs, performance issues, and best practices:">
+          <span class="preset-icon">✅</span> Code Review
+        </button>
+        <button class="chat-preset" data-prompt="Refactor this code to be cleaner and more maintainable:">
+          <span class="preset-icon">✏️</span> Refactor
+        </button>
+        <button class="chat-preset" data-prompt="Write unit tests for this code using:">
+          <span class="preset-icon">🧪</span> Write Tests
+        </button>
+        <button class="chat-preset" data-prompt="Find bugs and security vulnerabilities in this code:">
+          <span class="preset-icon">🔒</span> Security Audit
+        </button>
+        <button class="chat-preset" data-prompt="Summarize what this code does in plain English:">
+          <span class="preset-icon">📊</span> Summarize
+        </button>
+        <div class="chat-sidebar-footer">
+          <p>Powered by <a href="https://bwat-site.vercel.app" target="_blank" rel="noopener">Bwat Web</a></p>
+          <p class="footer-note">For best results, open the full Bwat AI in your browser.</p>
+          <a href="https://bwat-site.vercel.app" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="width:100%;margin-top:8px;">Open Bwat Web</a>
+        </div>
+      </div>
+      <div class="chat-main">
+        <div class="chat-messages" id="chatMessages">
+          <div class="message message-ai">
+            <div class="message-avatar">B</div>
+            <div class="message-content">
+              <strong>Bwat AI</strong>
+              <p>Hello! I\'m your AI coding assistant. Paste your code or describe what you need help with. Use the quick actions on the left to get started.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" id="chatInput" placeholder="Paste your code or ask a question..." rows="3"></textarea>
+          <button class="btn btn-primary chat-send" id="chatSend">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+  const chatMessages = document.getElementById('chatMessages');
+
+  // Preset buttons
+  document.querySelectorAll('.chat-preset').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const prompt = btn.getAttribute('data-prompt');
+      chatInput.value = prompt + '\\n\\n';
+      chatInput.focus();
+    });
+  });
+
+  function addMessage(role, content) {
+    const div = document.createElement('div');
+    div.className = 'message message-' + role;
+
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.textContent = role === 'user' ? 'U' : 'B';
+
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    const strong = document.createElement('strong');
+    strong.textContent = role === 'user' ? 'You' : 'Bwat AI';
+    contentDiv.appendChild(strong);
+
+    const p = document.createElement('p');
+    p.textContent = content;
+    contentDiv.appendChild(p);
+
+    div.appendChild(avatar);
+    div.appendChild(contentDiv);
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  chatSend.addEventListener('click', function() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    addMessage('user', text);
+    chatInput.value = '';
+
+    // Show AI thinking state
+    const thinkingDiv = document.createElement('div');
+    thinkingDiv.className = 'message message-ai';
+    thinkingDiv.innerHTML = '<div class="message-avatar">B</div><div class="message-content"><strong>Bwat AI</strong><p><em>Thinking...</em></p></div>';
+    chatMessages.appendChild(thinkingDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    // Forward to Bwat Web
+    setTimeout(function() {
+      thinkingDiv.remove();
+      addMessage('ai', 'This is a preview interface. For a full AI-powered response, open Bwat Web. Your message has been noted and would be processed by the Casa Neural Engine in the full version.\n\n👉 Click "Open Bwat Web" in the sidebar to continue.');
+    }, 800);
+  });
+
+  chatInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      chatSend.click();
+    }
+  });
+});
+</script>
+` }) %>

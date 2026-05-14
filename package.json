@@ -1,0 +1,19 @@
+{
+  "name": "ai-productivity-tools-web",
+  "version": "0.2.0",
+  "description": "Web app for AI Productivity Tools — landing page, AI chat, documentation, and VS Code extension download.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

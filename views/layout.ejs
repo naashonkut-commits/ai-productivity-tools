@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= locals.title || 'AI Productivity Tools' %></title>
+  <meta name="description" content="10 AI-powered developer tools for VS Code. Explain code, generate commits, review code, find unused imports, blame lines, summarize files, and more.">
+  <meta property="og:title" content="AI Productivity Tools">
+  <meta property="og:description" content="10 AI-powered developer tools for VS Code. Built by Casa Management Solutions.">
+  <meta property="og:image" content="/logo-256.png">
+  <link rel="icon" type="image/png" href="/logo-256.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/logo-256.png" alt="AI Productivity Tools" width="36" height="36">
+        <span>AI<span class="accent"> Productivity</span> Tools</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/ai-chat">AI Chat</a>
+        <a href="/docs">Docs</a>
+        <a href="/download" class="nav-cta">Download</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="/logo-256.png" alt="" width="32" height="32">
+        <div>
+          <strong>AI Productivity Tools</strong>
+          <span>v0.2.0 &middot; Built by Casa Management Solutions</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/naashonkut-commits/ai-productivity-tools" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://bwat-site.vercel.app" target="_blank" rel="noopener">Bwat Web</a>
+        <a href="/docs">Documentation</a>
+        <a href="/download">Download .vsix</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Casa Management Solutions. MIT License.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/app.js" }
+  ],
+  "functions": {
+    "app.js": {
+      "memory": 256,
+      "maxDuration": 30
+    }
+  }
+}

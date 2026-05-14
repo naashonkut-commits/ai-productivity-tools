@@ -1,0 +1,75 @@
+<%- include('layout', { body: `
+<section class="page-header">
+  <div class="container">
+    <h1>Documentation</h1>
+    <p>Complete guide to all 10 commands, shortcuts, and features of AI Productivity Tools.</p>
+  </div>
+</section>
+
+<section class="docs-section">
+  <div class="container">
+    <div class="docs-toc">
+      <h3>Contents</h3>
+      <a href="#commands">Commands Overview</a>
+      <a href="#explain">Explain Code</a>
+      <a href="#commit">Generate Commit Message</a>
+      <a href="#bwat">Open Bwat Web</a>
+      <a href="#summarize">Summarize File</a>
+      <a href="#unused">Find Unused Imports</a>
+      <a href="#review">Code Review</a>
+      <a href="#blame">Git Blame & History</a>
+      <a href="#refactor">Quick Refactor</a>
+      <a href="#docs">Browse Bwat Docs</a>
+      <a href="#dashboard">Toggle Dashboard</a>
+    </div>
+
+    <div class="docs-content">
+      <h2 id="commands">Commands Overview</h2>
+      <p>AI Productivity Tools provides 10 commands accessible via keyboard shortcuts, the command palette (Ctrl+Shift+P), or context menus.</p>
+      <table class="docs-table">
+        <tr><th>Command</th><th>Shortcut</th><th>Description</th></tr>
+        <tr><td>Explain Code</td><td><kbd>Ctrl+Shift+E</kbd></td><td>Outputs language, functions, classes, imports of selected code or whole file</td></tr>
+        <tr><td>Generate Commit Message</td><td><kbd>Ctrl+Shift+G</kbd></td><td>Analyzes git diff, suggests conventional commits with emojis</td></tr>
+        <tr><td>Open Bwat Web</td><td><kbd>Ctrl+Shift+W</kbd></td><td>Full AI panel with all commands available</td></tr>
+        <tr><td>Summarize File</td><td><kbd>Ctrl+Shift+I</kbd></td><td>LOC breakdown, functions, health indicators</td></tr>
+        <tr><td>Find Unused Imports</td><td><kbd>Ctrl+Shift+U</kbd></td><td>Scan for dead imports, one-click removal</td></tr>
+        <tr><td>Code Review</td><td><kbd>Ctrl+Shift+R</kbd></td><td>Static analysis — TODOs, logging, nesting</td></tr>
+        <tr><td>Git Blame</td><td><kbd>Ctrl+Shift+H</kbd></td><td>Line-by-line blame with author stats</td></tr>
+        <tr><td>Quick Refactor</td><td><kbd>Ctrl+Shift+D</kbd></td><td>Reference count, triggers VS Code rename</td></tr>
+        <tr><td>Browse Bwat Docs</td><td>—</td><td>Built-in documentation panel</td></tr>
+        <tr><td>Toggle Dashboard</td><td><kbd>Ctrl+Shift+P</kbd></td><td>Session timer + file info in status bar</td></tr>
+      </table>
+
+      <h2 id="explain">Explain Code</h2>
+      <p>Select code and press <kbd>Ctrl+Shift+E</kbd>. If nothing is selected, the entire file is analyzed. Output goes to a dedicated channel showing language, file path, line count, functions detected, classes, imports, and the full code.</p>
+
+      <h2 id="commit">Generate Commit Message</h2>
+      <p>Press <kbd>Ctrl+Shift+G</kbd> to analyze your staged (or unstaged) changes. A quick pick menu lets you commit directly, edit the message, regenerate with emoji style, or preview the diff. The extension asks before running <code>git add -A</code>.</p>
+
+      <h2 id="bwat">Open Bwat Web</h2>
+      <p>Press <kbd>Ctrl+Shift+W</kbd> to open the full AI panel. Every button in the panel dispatches correctly to the extension — no dead buttons.</p>
+
+      <h2 id="summarize">Summarize File</h2>
+      <p>Shows total lines, code vs comment vs empty line counts, file size, functions, classes, imports, exports, average function length, and comment ratio with health warnings.</p>
+
+      <h2 id="unused">Find Unused Imports</h2>
+      <p>Scans the active file for import statements not referenced in the body. Supports TypeScript, JavaScript, Python, Java, and PHP. Offers one-click removal.</p>
+
+      <h2 id="review">Code Review</h2>
+      <p>Static analysis that checks for: console.log/debugger statements, TODO/FIXME/HACK/XXX tags, deeply nested code (&gt;32 spaces), lines over 120 characters, and empty catch blocks.</p>
+
+      <h2 id="blame">Git Blame & History</h2>
+      <p>Press <kbd>Ctrl+Shift+H</kbd>. If no selection, blames the whole file. Shows commit date, author, line number, content, author stats with percentages, and the last 5 commits.</p>
+
+      <h2 id="refactor">Quick Refactor</h2>
+      <p>Place cursor on any symbol and press <kbd>Ctrl+Shift+D</kbd>. Shows the reference count and triggers VS Code's native rename with preview.</p>
+
+      <h2 id="docs">Browse Bwat Docs</h2>
+      <p>Opens a documentation webview with all commands, shortcuts, usage tips, and references — no internet connection required.</p>
+
+      <h2 id="dashboard">Toggle Dashboard</h2>
+      <p>Press <kbd>Ctrl+Shift+P</kbd> to toggle a live status bar display showing session time, active file name, line count, and selection size.</p>
+    </div>
+  </div>
+</section>
+` }) %>
